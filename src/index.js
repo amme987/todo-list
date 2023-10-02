@@ -1,2 +1,3 @@
 import "./style.css";
-console.log("test");
+
+// todo: design popup for adding todo to list
