@@ -13,6 +13,18 @@ body {
   grid-template: auto 1fr / 30% 70%;
 }
 
+/* Background color gets darker when form pops up  */
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 50%);
+}
+
 h1 {
   grid-column: span 2;
   color: white;
@@ -22,4 +34,23 @@ h1 {
 nav {
   grid-row-start: 2;
   background-color: lightgray;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+menu {
+  padding: 0;
 }

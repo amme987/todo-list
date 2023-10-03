@@ -8,7 +8,31 @@
     <title>Todo List</title>
   </head>
   <body>
+    <div class="overlay"></div>
     <h1>Todo List</h1>
-    <nav>Stuff</nav>
+    <nav>
+      <button class="add">+</button>
+      <form style="display: none">
+        <label for="title"
+          ><input type="text" name="title" id="title" placeholder="Title"
+        /></label>
+        <label for="description">
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="Description"
+          ></textarea>
+        </label>
+        <label for="date"
+          >Date<input type="date" name="date" id="date"
+        /></label>
+        <menu
+          ><button>Low</button><button>Medium</button
+          ><button>High</button></menu
+        >
+      </form>
+    </nav>
   </body>
 </html>
