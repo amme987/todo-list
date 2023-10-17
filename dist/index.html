@@ -9,10 +9,17 @@
   </head>
   <body>
     <div class="overlay"></div>
-    <h1>Todo List</h1>
+    <header>
+      <h1>Todo List</h1>
+    </header>
     <nav>
-      <button class="add">+</button>
+      <button class="new-task">+</button>
       <form style="display: none">
+        <div class="form-header">
+          <button>Cancel</button>
+          <div>New Task</div>
+          <button type="button" class="add">Add</button>
+        </div>
         <label for="title"
           ><input type="text" name="title" id="title" placeholder="Title"
         /></label>
@@ -28,11 +35,16 @@
         <label for="date"
           >Date<input type="date" name="date" id="date"
         /></label>
-        <menu
+        <menu class="priority"
           ><button>Low</button><button>Medium</button
           ><button>High</button></menu
         >
       </form>
     </nav>
+    <main>
+      <h1>Project Name</h1>
+      <label> <input type="checkbox" name="title" /> </label>
+      <div class="date"></div>
+    </main>
   </body>
 </html>
