@@ -20,8 +20,13 @@
           <div>New Task</div>
           <button type="button" class="add">Add</button>
         </div>
-        <label for="title"
-          ><input type="text" name="title" id="title" placeholder="Title"
+        <label for="form-title"
+          ><input
+            type="text"
+            name="form-title"
+            id="form-title"
+            placeholder="Title"
+            value="test1"
         /></label>
         <label for="description">
           <textarea
@@ -43,7 +48,8 @@
     </nav>
     <main>
       <h1>Project Name</h1>
-      <label> <input type="checkbox" name="title" /> </label>
+      <input type="checkbox" name="title" id="title" />
+      <label for="title"></label>
       <div class="date"></div>
     </main>
   </body>

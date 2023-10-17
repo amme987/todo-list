@@ -1,18 +1,4 @@
-// Open and close popup form
-const newTask = document.querySelector(".new-task");
-const overlay = document.querySelector(".overlay");
-newTask.addEventListener("click", openForm);
-overlay.addEventListener("click", closeForm);
-
-function openForm() {
-  document.querySelector("form").style.display = "flex";
-  overlay.style.display = "block";
-}
-
-function closeForm() {
-  document.querySelector("form").style.display = "none";
-  overlay.style.display = "none";
-}
+import closeForm from "./popupForm";
 
 // Add new task to list
 let taskList = [];
@@ -31,27 +17,37 @@ class Task {
 add.addEventListener("click", () => {
   closeForm();
   addTaskToList();
+  displayTask();
 });
 
 function addTaskToList() {
   const main = document.querySelector("main label");
 
-  const title = document.getElementById("title").value;
+  const title = document.getElementById("form-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
   // const priority = document.getElementById("priority").value;
 
   const test = new Task(title, description, date);
+  taskList.push(test);
 }
 
 function displayTask() {
-  taskList.push(test);
-  for (let tasks of taskList) {
-    console.log(Object.values(tasks));
-  }
-  console.log(taskList);
-  // main.textContent = taskList[0].date.value;
-}
+  const title = document.querySelector("label[for='title']");
+  const date = document.querySelector(".date");
 
+  console.log(taskList);
+  // Loop through taskList
+  for (let tasks of taskList) {
+    // Loop through keys in taskList (title/description/date/priority)
+    for (let keys in tasks) {
+      if (keys === "title") {
+        title.textContent = tasks[keys];
+      } else if (keys === "date") {
+        date.textContent = tasks[keys];
+      }
+    }
+  }
+}
 // TODO: Make new task show up with checkbox, title, due date, priority
-// Start by having values of taskList display on main list
+// Have priority display on main list
