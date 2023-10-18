@@ -41,8 +41,14 @@
           >Date<input type="date" name="date" id="date"
         /></label>
         <menu class="priority"
-          ><button>Low</button><button>Medium</button
-          ><button>High</button></menu
+          ><label for="low"
+            ><input type="radio" name="priority" id="low" />Low</label
+          ><label for="medium"
+            ><input type="radio" name="priority" id="medium" />Medium</label
+          >
+          <label for="high"
+            ><input type="radio" name="priority" id="high" />High</label
+          ></menu
         >
       </form>
     </nav>
@@ -51,6 +57,7 @@
       <input type="checkbox" name="title" id="title" />
       <label for="title"></label>
       <div class="date"></div>
+      <div class="priority"></div>
     </main>
   </body>
 </html>

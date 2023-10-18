@@ -1,4 +1,4 @@
-import closeForm from "./popupForm";
+import { closeForm } from "./popupForm";
 
 // Add new task to list
 let taskList = [];
@@ -6,11 +6,11 @@ let taskList = [];
 const add = document.querySelector(".add");
 
 class Task {
-  constructor(title, description, date) {
+  constructor(title, description, date, priority) {
     this.title = title;
     this.description = description;
     this.date = date;
-    // this.priority = priority;
+    this.priority = priority;
   }
 }
 
@@ -26,15 +26,16 @@ function addTaskToList() {
   const title = document.getElementById("form-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
-  // const priority = document.getElementById("priority").value;
+  const priority = document.querySelector("input[type='radio']").id;
 
-  const test = new Task(title, description, date);
+  const test = new Task(title, description, date, priority);
   taskList.push(test);
 }
 
 function displayTask() {
   const title = document.querySelector("label[for='title']");
   const date = document.querySelector(".date");
+  const priority = document.querySelector("div.priority");
 
   console.log(taskList);
   // Loop through taskList
@@ -45,9 +46,12 @@ function displayTask() {
         title.textContent = tasks[keys];
       } else if (keys === "date") {
         date.textContent = tasks[keys];
+      } else if (keys === "priority") {
+        priority.textContent = tasks[keys];
       }
     }
   }
 }
+
 // TODO: Make new task show up with checkbox, title, due date, priority
 // Have priority display on main list

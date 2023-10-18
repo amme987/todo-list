@@ -13,4 +13,24 @@ function closeForm() {
   overlay.style.display = "none";
 }
 
-export default closeForm;
+// Handle user input for priority buttons
+const buttons = document.querySelectorAll("input[type='radio']");
+
+console.log(buttons);
+
+// for (const button of buttons) {
+//   button.addEventListener("click", e => {
+//     e.preventDefault();
+//     let priority = e.target.value;
+//   });
+// }
+
+buttons.forEach(button => {
+  button.addEventListener("click", e => {
+    console.log(e.target.id);
+  });
+});
+
+// console.log(`priority: ${priority()}`);
+
+export { closeForm };
