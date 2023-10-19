@@ -26,7 +26,14 @@ function addTaskToList() {
   const title = document.getElementById("form-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
-  const priority = document.querySelector("input[type='radio']").id;
+  let priority = document.querySelectorAll("input[type='radio']");
+
+  // Get priority based on radio button selected
+  priority.forEach(item => {
+    if (item.checked === true) {
+      priority = item.id;
+    }
+  });
 
   const test = new Task(title, description, date, priority);
   taskList.push(test);
@@ -37,7 +44,6 @@ function displayTask() {
   const date = document.querySelector(".date");
   const priority = document.querySelector("div.priority");
 
-  console.log(taskList);
   // Loop through taskList
   for (let tasks of taskList) {
     // Loop through keys in taskList (title/description/date/priority)
@@ -52,6 +58,3 @@ function displayTask() {
     }
   }
 }
-
-// TODO: Make new task show up with checkbox, title, due date, priority
-// Have priority display on main list
