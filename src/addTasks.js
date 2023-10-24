@@ -21,7 +21,7 @@ add.addEventListener("click", () => {
 });
 
 function addTaskToList() {
-  const main = document.querySelector("main label");
+  // const main = document.querySelector("main label");
 
   const title = document.getElementById("form-title").value;
   const description = document.getElementById("description").value;
@@ -40,21 +40,38 @@ function addTaskToList() {
 }
 
 function displayTask() {
-  const title = document.querySelector("label[for='title']");
-  const date = document.querySelector(".date");
-  const priority = document.querySelector("div.priority");
+  const main = document.querySelector("main");
+  main.textContent = "";
 
   // Loop through taskList
-  for (let tasks of taskList) {
+  for (const tasks in taskList) {
+    const title = document.createElement("label");
+
+    // Create checkbox input to attach to title label
+    const inputTitle = document.createElement("input");
+    inputTitle.setAttribute("type", "checkbox");
+    inputTitle.setAttribute("id", tasks);
+
+    const date = document.createElement("div");
+    date.classList.add("date");
+
+    const priority = document.createElement("div");
+    priority.classList.add("priority");
+
+    main.append(title, date, priority);
+
     // Loop through keys in taskList (title/description/date/priority)
-    for (let keys in tasks) {
+    for (let keys in taskList[tasks]) {
       if (keys === "title") {
-        title.textContent = tasks[keys];
+        title.append(inputTitle, taskList[tasks][keys]);
       } else if (keys === "date") {
-        date.textContent = tasks[keys];
+        date.textContent = taskList[tasks][keys];
       } else if (keys === "priority") {
-        priority.textContent = tasks[keys];
+        priority.textContent = taskList[tasks][keys];
       }
     }
   }
 }
+
+// TODO: Have multiple tasks display at once
+// Make tasks look better
