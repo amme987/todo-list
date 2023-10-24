@@ -40,16 +40,14 @@
         <label for="date"
           >Date<input type="date" name="date" id="date"
         /></label>
-        <menu class="priority"
-          ><label for="low"
-            ><input type="radio" name="priority" id="low" />Low</label
-          ><label for="medium"
-            ><input type="radio" name="priority" id="medium" />Medium</label
+        <menu class="priority">
+          <label><input type="radio" name="priority" value="none" />None</label>
+          <label><input type="radio" name="priority" value="low" />Low</label>
+          <label
+            ><input type="radio" name="priority" value="medium" />Medium</label
           >
-          <label for="high"
-            ><input type="radio" name="priority" id="high" />High</label
-          ></menu
-        >
+          <label><input type="radio" name="priority" value="high" />High</label>
+        </menu>
       </form>
     </nav>
     <main>

@@ -31,7 +31,7 @@ function addTaskToList() {
   // Get priority based on radio button selected
   priority.forEach(item => {
     if (item.checked === true) {
-      priority = item.id;
+      priority = item.value;
     }
   });
 
