@@ -18,7 +18,8 @@
         <div class="form-header">
           <button>Cancel</button>
           <div>New Task</div>
-          <button type="button" class="add">Add</button>
+          <!-- Button type is 'reset' to reset form elements when clicked  -->
+          <button type="reset" class="add">Add</button>
         </div>
         <label for="form-title"
           ><input
@@ -45,11 +46,10 @@
             ><input
               type="radio"
               name="priority"
-              value="none"
+              value="low"
               checked
-            />None</label
+            />Low</label
           >
-          <label><input type="radio" name="priority" value="low" />Low</label>
           <label
             ><input type="radio" name="priority" value="medium" />Medium</label
           >

@@ -72,3 +72,12 @@ menu {
 /* input[type="radio"] {
   appearance: none;
 } */
+
+article {
+  display: flex;
+  gap: 15px;
+}
+
+article label {
+  font-weight: bold;
+}
