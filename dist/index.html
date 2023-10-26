@@ -13,8 +13,20 @@
       <h1>Todo List</h1>
     </header>
     <nav>
-      <button class="new-task">+</button>
-      <form style="display: none">
+      <div class="bold">Projects</div>
+      <button id="add-project" class="form">+ Add Project</button>
+      <form id="projects" style="display: none"></form>
+    </nav>
+    <div class="list">
+      <h2>Personal</h2>
+      <main>
+        <!-- <h1>Project Name</h1> -->
+        <!-- <label for="title"></label>
+        <div class="date"></div>
+        <div class="priority"></div> -->
+      </main>
+      <button id="add-task" class="form">+ Add Task</button>
+      <form id="tasks" style="display: none">
         <div class="form-header">
           <button>Cancel</button>
           <div>New Task</div>
@@ -56,12 +68,6 @@
           <label><input type="radio" name="priority" value="high" />High</label>
         </menu>
       </form>
-    </nav>
-    <main>
-      <!-- <h1>Project Name</h1> -->
-      <!-- <label for="title"></label>
-      <div class="date"></div>
-      <div class="priority"></div> -->
-    </main>
+    </div>
   </body>
 </html>

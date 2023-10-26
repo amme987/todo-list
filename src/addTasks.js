@@ -26,9 +26,7 @@ function addTaskToList() {
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
   // Know which radio button is checked
-  let priority = document.querySelector("input[type='radio']:checked").value;
-
-  console.log(priority);
+  const priority = document.querySelector("input[type='radio']:checked").value;
 
   const test = new Task(title, description, date, priority);
   taskList.push(test);

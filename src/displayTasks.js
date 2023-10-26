@@ -24,7 +24,11 @@ export function displayTask() {
     const priority = document.createElement("div");
     priority.classList.add("priority");
 
+    // const details = document.createElement("details");
+    // const summary = document.createElement("summary");
+
     row.append(title, date, priority);
+    // details.append(summary);
 
     // Loop through keys in taskList (title/description/date/priority)
     for (let keys in taskList[tasks]) {

@@ -1,15 +1,28 @@
 // Open and close popup form
-const newTask = document.querySelector(".new-task");
 const overlay = document.querySelector(".overlay");
-newTask.addEventListener("click", openForm);
+
+const formButtons = document.querySelectorAll(".form");
+formButtons.forEach(button => {
+  button.addEventListener("click", e => {
+    // Account for both forms
+    if (e.target.id === "add-project") {
+      openForm("projects");
+    } else {
+      openForm("tasks");
+    }
+  });
+});
+
 overlay.addEventListener("click", closeForm);
 
-function openForm() {
-  document.querySelector("form").style.display = "flex";
+function openForm(form) {
+  document.getElementById(form).style.display = "flex";
   overlay.style.display = "block";
 }
+
 function closeForm() {
-  document.querySelector("form").style.display = "none";
+  // Close form that is currently being shown
+  document.querySelector("form[style='display: flex;'").style.display = "none";
   overlay.style.display = "none";
 }
 

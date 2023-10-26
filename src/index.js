@@ -1,3 +1,6 @@
 import "./style.css";
 import "./addTasks.js";
-import "./displayTasks.js"; //Remove later?
+
+// TODO: Let user group tasks into projects
+
+function addProjectToList() {}

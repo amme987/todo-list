@@ -4,6 +4,7 @@ html {
 
 body,
 h1,
+h2,
 form menu {
   margin: 0;
 }
@@ -35,6 +36,10 @@ header {
 nav {
   grid-row-start: 2;
   background-color: lightgray;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 form {
