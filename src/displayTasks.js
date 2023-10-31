@@ -1,7 +1,7 @@
 import { taskList } from "./addTasks";
 
 export function displayTask() {
-  const main = document.querySelector("main");
+  const main = document.querySelector(".tasks main");
   main.textContent = "";
 
   // Loop through taskList
