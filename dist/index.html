@@ -15,7 +15,21 @@
     <nav>
       <div class="bold">Projects</div>
       <button id="add-project" class="form">+ Add Project</button>
-      <form id="projects" style="display: none"></form>
+      <form id="projects" style="display: none">
+        <div class="form-header">
+          <button>Cancel</button>
+          <div>New Project</div>
+          <!-- Button type is 'reset' to reset form elements when clicked  -->
+          <button type="reset" class="add">Add</button>
+        </div>
+        <label for="project-name"
+          ><input
+            type="text"
+            name="project-name"
+            id="project-name"
+            placeholder="Project Name"
+        /></label>
+      </form>
     </nav>
     <div class="list">
       <h2>Personal</h2>
@@ -33,13 +47,12 @@
           <!-- Button type is 'reset' to reset form elements when clicked  -->
           <button type="reset" class="add">Add</button>
         </div>
-        <label for="form-title"
+        <label for="task-title"
           ><input
             type="text"
-            name="form-title"
-            id="form-title"
+            name="task-title"
+            id="task-title"
             placeholder="Title"
-            value="test1"
         /></label>
         <label for="description">
           <textarea

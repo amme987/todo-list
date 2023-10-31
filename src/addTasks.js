@@ -1,10 +1,9 @@
 import { displayTask } from "./displayTasks";
 import { closeForm } from "./popupForm";
 
-// Add new task to list
 export let taskList = [];
 
-const add = document.querySelector(".add");
+const add = document.querySelector("#tasks .add");
 
 class Task {
   constructor(title, description, date, priority) {
@@ -22,7 +21,7 @@ add.addEventListener("click", () => {
 });
 
 function addTaskToList() {
-  const title = document.getElementById("form-title").value;
+  const title = document.getElementById("task-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
   // Know which radio button is checked

@@ -22,7 +22,7 @@ function openForm(form) {
 
 function closeForm() {
   // Close form that is currently being shown
-  document.querySelector("form[style='display: flex;'").style.display = "none";
+  document.querySelector("form[style='display: flex;']").style.display = "none";
   overlay.style.display = "none";
 }
 
