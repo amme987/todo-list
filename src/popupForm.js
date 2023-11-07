@@ -34,7 +34,7 @@ function closeForm() {
 
   const dateFormat = `${today.getFullYear()}-${month
     .toString()
-    .padStart(2, 0)}-${today.getDate()}`;
+    .padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
 
   date.setAttribute("value", dateFormat);
 })();

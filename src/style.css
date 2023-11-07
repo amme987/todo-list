@@ -1,12 +1,18 @@
-* {
+html {
   font-family: sans-serif;
-  /* font-size: 20px; */
+}
+
+html,
+button,
+input,
+textarea {
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 body,
 h1,
-h2,
+hr,
 form menu {
   margin: 0;
 }
@@ -31,17 +37,24 @@ body {
 
 header {
   grid-column: span 2;
-  color: white;
-  background-color: black;
+  /* color: white;
+  background-color: black; */
 }
 
 nav {
   grid-row-start: 2;
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
 }
 
-.bold {
+.projects > div {
   font-weight: bold;
+}
+
+button.form,
+button.tasks {
+  background-color: transparent;
+  border: none;
+  font-size: smaller;
 }
 
 form {
