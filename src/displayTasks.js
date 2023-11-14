@@ -1,6 +1,6 @@
-import { taskList } from "./addTasks";
+// import { taskList } from "./addTasks";
 
-export function displayTask() {
+export function displayTask(taskList) {
   const main = document.querySelector(".tasks main");
   main.textContent = "";
 

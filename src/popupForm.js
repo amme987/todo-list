@@ -20,9 +20,9 @@ function openForm(form) {
   overlay.style.display = "block";
 }
 
-function closeForm() {
+function closeForm(form) {
   // Close form that is currently being shown
-  document.querySelector("form[style='display: flex;']").style.display = "none";
+  document.getElementById(form).style.display = "none";
   overlay.style.display = "none";
 }
 

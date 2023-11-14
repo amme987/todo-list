@@ -1,7 +1,8 @@
 import { displayTask } from "./displayTasks";
 import { closeForm } from "./popupForm";
+// import { taskList } from "./projects";
 
-export let taskList = [];
+// let taskList = [];
 
 const add = document.querySelector("#tasks .add");
 
@@ -14,19 +15,24 @@ class Task {
   }
 }
 
-add.addEventListener("click", () => {
-  closeForm();
-  addTaskToList();
-  displayTask();
-});
+export function clickAddTask(taskList) {
+  add.addEventListener("click", () => {
+    // console.log(taskList);
+    closeForm("tasks");
+    addTaskToList(taskList);
+    displayTask(taskList);
+  });
+}
 
-function addTaskToList() {
+function addTaskToList(taskList) {
   const title = document.getElementById("task-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
   // Know which radio button is checked
   const priority = document.querySelector("input[type='radio']:checked").value;
 
-  const test = new Task(title, description, date, priority);
-  taskList.push(test);
+  const task = new Task(title, description, date, priority);
+  taskList.push(task);
 }
+
+// export { taskList };
