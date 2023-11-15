@@ -7,7 +7,7 @@ export function displayTask(taskList) {
     // Row for each task to go in
     const row = document.createElement("article");
     main.appendChild(row);
-    // row.setAttribute("id", tasks);
+    row.setAttribute("id", tasks);
 
     const title = document.createElement("label");
 

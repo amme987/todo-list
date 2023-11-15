@@ -2,6 +2,7 @@ import { closeForm } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
 let projectList = [];
+export let projectTasks;
 
 class Project {
   constructor(name) {
@@ -34,12 +35,14 @@ function displayProject() {
     div.setAttribute("id", `p${projects}`);
     div.textContent = projectList[projects].name;
   }
+
+  // Updates current taskList and displays blank list when new project is displayed
+  projectTasks = projectList[projectList.length - 1].taskList;
+  displayTask(projectTasks);
 }
 
-const projects = document.querySelector("body > nav > main");
 // Export taskList corresponding to project selected
-export let projectTasks;
-
+const projects = document.querySelector("body > nav > main");
 projects.addEventListener("click", e => {
   const id = e.target.id.slice(1);
   projectTasks = projectList[id].taskList;
