@@ -1,8 +1,6 @@
 import { displayTask } from "./displayTasks";
 import { closeForm } from "./popupForm";
-// import { taskList } from "./projects";
-
-// let taskList = [];
+import { projectTasks } from "./projects";
 
 const add = document.querySelector("#tasks .add");
 
@@ -15,14 +13,11 @@ class Task {
   }
 }
 
-export function clickAddTask(taskList) {
-  add.addEventListener("click", () => {
-    // console.log(taskList);
-    closeForm("tasks");
-    addTaskToList(taskList);
-    displayTask(taskList);
-  });
-}
+add.addEventListener("click", e => {
+  closeForm();
+  addTaskToList(projectTasks);
+  displayTask(projectTasks);
+});
 
 function addTaskToList(taskList) {
   const title = document.getElementById("task-title").value;
@@ -34,5 +29,3 @@ function addTaskToList(taskList) {
   const task = new Task(title, description, date, priority);
   taskList.push(task);
 }
-
-// export { taskList };

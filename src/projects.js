@@ -1,9 +1,7 @@
 import { closeForm } from "./popupForm";
-import { clickAddTask } from "./addTasks";
 import { displayTask } from "./displayTasks";
 
 let projectList = [];
-const add = document.querySelector("#projects .add");
 
 class Project {
   constructor(name) {
@@ -13,8 +11,9 @@ class Project {
   taskList = [];
 }
 
+const add = document.querySelector("#projects .add");
 add.addEventListener("click", () => {
-  closeForm("projects");
+  closeForm();
   addProjectToList();
   displayProject();
 });
@@ -38,15 +37,11 @@ function displayProject() {
 }
 
 const projects = document.querySelector("body > nav > main");
-// console.log(projects.children);
+// Export taskList corresponding to project selected
+export let projectTasks;
 
 projects.addEventListener("click", e => {
-  // if (e.target.matches("div")) {
   const id = e.target.id.slice(1);
-  console.log(projectList[id]);
-  displayTask(projectList[id].taskList);
-  clickAddTask(projectList[id].taskList);
-  // }
+  projectTasks = projectList[id].taskList;
+  displayTask(projectTasks);
 });
-// TODO: Fix issue where multiple tasks are being added. Related to
-// clicking the same project multiple times
