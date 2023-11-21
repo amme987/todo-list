@@ -13,7 +13,8 @@ textarea {
 body,
 h1,
 hr,
-form menu {
+.priority,
+menu {
   margin: 0;
 }
 
@@ -74,6 +75,7 @@ form {
 
 .form-header {
   display: flex;
+  font-weight: bold;
   /* justify-content: space-between; */
   gap: 2rem;
 }
@@ -83,14 +85,11 @@ textarea {
   width: 100%;
 }
 
-form div {
-  font-weight: bold;
-}
-
 textarea {
   resize: none;
 }
 
+.priority,
 menu {
   padding: 0;
 }
@@ -106,4 +105,9 @@ article {
 
 article label {
   font-weight: bold;
+}
+
+menu {
+  display: flex;
+  list-style-type: none;
 }

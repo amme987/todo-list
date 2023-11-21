@@ -25,7 +25,15 @@ export function displayTask(taskList) {
     // const details = document.createElement("details");
     // const summary = document.createElement("summary");
 
-    row.append(title, date, priority);
+    // Menu element with button options to edit/delete task
+    const menu = document.createElement("menu");
+    row.appendChild(menu);
+    const edit = document.createElement("li");
+    edit.appendChild(document.createElement("button")).textContent = "Edit";
+    const remove = document.createElement("li");
+    remove.appendChild(document.createElement("button")).textContent = "Delete";
+    menu.append(edit, remove);
+    row.append(title, date, priority, menu);
     // details.append(summary);
 
     // Loop through keys in taskList (title/description/date/priority)
