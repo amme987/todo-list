@@ -25,15 +25,29 @@ export function displayTask(taskList) {
     // const details = document.createElement("details");
     // const summary = document.createElement("summary");
 
+    // // Menu element with button options to edit/delete task
+    // const menu = document.createElement("menu");
+    // const edit = document.createElement("li");
+    // edit.appendChild(document.createElement("button")).textContent = "Edit";
+    // const remove = document.createElement("li");
+    // remove.appendChild(document.createElement("button")).textContent = "Delete";
+    // menu.append(edit, remove);
+    // row.append(title, date, priority, menu);
+
     // Menu element with button options to edit/delete task
     const menu = document.createElement("menu");
-    row.appendChild(menu);
-    const edit = document.createElement("li");
-    edit.appendChild(document.createElement("button")).textContent = "Edit";
-    const remove = document.createElement("li");
-    remove.appendChild(document.createElement("button")).textContent = "Delete";
-    menu.append(edit, remove);
+    const edit = document.createElement("input");
+    menu.appendChild(document.createElement("li")).appendChild(edit);
+    edit.setAttribute("type", "image");
+    edit.setAttribute("class", "edit");
+    edit.setAttribute("src", "/src/edit.svg");
+    const remove = document.createElement("input");
+    menu.appendChild(document.createElement("li")).appendChild(remove);
+    remove.setAttribute("type", "image");
+    remove.setAttribute("class", "edit");
+    remove.setAttribute("src", "/src/delete.svg");
     row.append(title, date, priority, menu);
+
     // details.append(summary);
 
     // Loop through keys in taskList (title/description/date/priority)
@@ -48,3 +62,5 @@ export function displayTask(taskList) {
     }
   }
 }
+
+function editTasks() {}

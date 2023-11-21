@@ -111,3 +111,7 @@ menu {
   display: flex;
   list-style-type: none;
 }
+
+input[type="image"] {
+  width: 1rem;
+}

@@ -13,7 +13,7 @@ class Task {
   }
 }
 
-add.addEventListener("click", e => {
+add.addEventListener("click", () => {
   closeForm();
   addTaskToList(projectTasks);
   displayTask(projectTasks);
