@@ -12,6 +12,13 @@ class Project {
   taskList = [];
 }
 
+// Display default project when user first opens the app
+(function () {
+  const defaultProject = new Project("Personal");
+  projectList.push(defaultProject);
+  displayProject();
+})();
+
 const add = document.querySelector("#projects .add");
 add.addEventListener("click", () => {
   closeForm();
