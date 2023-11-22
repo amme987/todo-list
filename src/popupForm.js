@@ -1,5 +1,6 @@
 // Open and close popup form
 const overlay = document.querySelector(".overlay");
+const cancel = document.querySelectorAll(".cancel");
 
 const formButtons = document.querySelectorAll(".form");
 formButtons.forEach(button => {
@@ -14,6 +15,7 @@ formButtons.forEach(button => {
 });
 
 overlay.addEventListener("click", closeForm);
+cancel.forEach(button => button.addEventListener("click", closeForm));
 
 function openForm(form) {
   document.getElementById(form).style.display = "flex";
@@ -39,4 +41,4 @@ function closeForm() {
   date.setAttribute("value", dateFormat);
 })();
 
-export { closeForm };
+export { openForm, closeForm };

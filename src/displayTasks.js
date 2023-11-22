@@ -64,13 +64,3 @@ export function displayTask() {
     }
   }
 }
-
-const tasks = document.querySelector("body > div.tasks > main");
-tasks.addEventListener("click", e => {
-  if (e.target.matches(".edit")) {
-    console.log("edit");
-  } else if (e.target.matches(".delete")) {
-    taskList.splice(e.target.closest("article").id, 1);
-  }
-  displayTask();
-});
