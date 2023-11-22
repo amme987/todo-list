@@ -1,4 +1,6 @@
-export function displayTask(taskList) {
+import { taskList } from "./addTasks";
+
+export function displayTask() {
   const main = document.querySelector(".tasks main");
   main.textContent = "";
 
@@ -44,7 +46,7 @@ export function displayTask(taskList) {
     const remove = document.createElement("input");
     menu.appendChild(document.createElement("li")).appendChild(remove);
     remove.setAttribute("type", "image");
-    remove.setAttribute("class", "edit");
+    remove.setAttribute("class", "delete");
     remove.setAttribute("src", "/src/delete.svg");
     row.append(title, date, priority, menu);
 
@@ -63,4 +65,12 @@ export function displayTask(taskList) {
   }
 }
 
-function editTasks() {}
+const tasks = document.querySelector("body > div.tasks > main");
+tasks.addEventListener("click", e => {
+  if (e.target.matches(".edit")) {
+    console.log("edit");
+  } else if (e.target.matches(".delete")) {
+    taskList.splice(e.target.closest("article").id, 1);
+  }
+  displayTask();
+});

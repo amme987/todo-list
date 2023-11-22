@@ -1,6 +1,6 @@
 import { displayTask } from "./displayTasks";
 import { closeForm } from "./popupForm";
-import { projectTasks } from "./projects";
+import { projectTasks as taskList } from "./projects";
 
 const add = document.querySelector("#tasks .add");
 
@@ -15,11 +15,11 @@ class Task {
 
 add.addEventListener("click", () => {
   closeForm();
-  addTaskToList(projectTasks);
-  displayTask(projectTasks);
+  addTaskToList();
+  displayTask();
 });
 
-function addTaskToList(taskList) {
+function addTaskToList() {
   const title = document.getElementById("task-title").value;
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
@@ -29,3 +29,5 @@ function addTaskToList(taskList) {
   const task = new Task(title, description, date, priority);
   taskList.push(task);
 }
+
+export { taskList };

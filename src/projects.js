@@ -45,7 +45,7 @@ function displayProject() {
 
   // Updates current taskList and displays blank list when new project is displayed
   projectTasks = projectList[projectList.length - 1].taskList;
-  displayTask(projectTasks);
+  displayTask();
 }
 
 // Export taskList corresponding to project selected
@@ -53,5 +53,5 @@ const projects = document.querySelector("body > nav > main");
 projects.addEventListener("click", e => {
   const id = e.target.id.slice(1);
   projectTasks = projectList[id].taskList;
-  displayTask(projectTasks);
+  displayTask();
 });
