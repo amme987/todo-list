@@ -48,7 +48,7 @@ function displayProject() {
   displayTask();
 }
 
-// Export taskList corresponding to project selected
+// Display taskList corresponding to project selected
 const projects = document.querySelector("body > nav > main");
 projects.addEventListener("click", e => {
   const id = e.target.id.slice(1);
