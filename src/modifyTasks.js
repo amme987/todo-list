@@ -1,4 +1,4 @@
-import { taskList, addTaskToList } from "./addTasks";
+import { taskList, initialEvents, addTaskToList } from "./addTasks";
 import { openForm, closeForm, form } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
@@ -23,24 +23,26 @@ function displayTaskForm(task) {
 }
 
 function modifyTask(task) {
-  document.querySelector("#tasks .done").addEventListener("click", () => {
-    closeForm();
-    task.title = form().title;
-    console.log(taskList);
-    displayTask();
-  });
+  document.querySelector("#tasks .done").addEventListener(
+    "click",
+    () => {
+      closeForm();
+      task.title = form().title;
+      displayTask();
+    },
+    { once: true }
+  );
 }
 
 function changeToDone() {
-  // TODO: Change 'Add' button to 'Done' when form is pulled up and
-  // change logic so that when button is pressed it only updates tasks
-  // instead of adding new ones
   openForm("tasks");
 
   // Select button on form-header that is not the 'cancel' button (add/done)
   const done = document.querySelector(
     "#tasks > div.form-header > button:not(.cancel)"
   );
+
+  done.removeEventListener("click", initialEvents);
 
   done.setAttribute("class", "done");
   done.textContent = "Done";

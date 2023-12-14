@@ -2,8 +2,6 @@ import { displayTask } from "./displayTasks";
 import { closeForm, form } from "./popupForm";
 import { projectTasks as taskList } from "./projects";
 
-const add = document.querySelector("#tasks .add");
-
 class Task {
   constructor(title, description, date, priority) {
     this.title = title;
@@ -13,15 +11,12 @@ class Task {
   }
 }
 
-add.addEventListener(
-  "click",
-  () => {
-    closeForm();
-    addTaskToList();
-    displayTask();
-  },
-  { once: true }
-);
+// Initial listeners: addTaskToList, closeForm, displayTask
+const initialEvents = () => {
+  closeForm();
+  addTaskToList();
+  displayTask();
+};
 
 function addTaskToList() {
   const task = new Task(
@@ -33,4 +28,4 @@ function addTaskToList() {
   taskList.push(task);
 }
 
-export { taskList, addTaskToList };
+export { taskList, initialEvents, addTaskToList };

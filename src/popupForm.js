@@ -1,5 +1,11 @@
+import { initialEvents } from "./addTasks";
+
 const overlay = document.querySelector(".overlay");
 const cancel = document.querySelectorAll(".cancel");
+
+const add = document.querySelector(
+  "#tasks > div.form-header > button:not(.cancel)"
+);
 
 const formButtons = document.querySelectorAll(".form");
 formButtons.forEach(button => {
@@ -9,23 +15,28 @@ formButtons.forEach(button => {
       openForm("projects");
     } else {
       openForm("tasks");
+      add.addEventListener("click", initialEvents);
+      add.setAttribute("class", "add");
+      add.textContent = "Add";
+
+      document.querySelector("#tasks .form-header div").textContent =
+        "New Task";
     }
   });
 });
 
-overlay.addEventListener("click", closeForm);
+overlay.addEventListener("click", () => {
+  document.querySelector("form[style='display: flex;']").style.display = "none";
+
+  // Clear form so that previous form inputs aren't shown when adding new tasks
+  document.getElementById("tasks").reset();
+  overlay.style.display = "none";
+});
 cancel.forEach(button => button.addEventListener("click", closeForm));
 
 function openForm(form) {
   document.getElementById(form).style.display = "flex";
   overlay.style.display = "block";
-
-  // Select button on form-header that is not the 'cancel' button (add/done)
-  document.querySelector(
-    "#tasks > div.form-header > button:not(.cancel)"
-  ).textContent = "Add";
-
-  document.querySelector("#tasks .form-header div").textContent = "New Task";
 }
 
 function closeForm() {
