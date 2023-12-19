@@ -24,18 +24,6 @@ export function displayTask() {
     const priority = document.createElement("div");
     priority.classList.add("priority");
 
-    // const details = document.createElement("details");
-    // const summary = document.createElement("summary");
-
-    // // Menu element with button options to edit/delete task
-    // const menu = document.createElement("menu");
-    // const edit = document.createElement("li");
-    // edit.appendChild(document.createElement("button")).textContent = "Edit";
-    // const remove = document.createElement("li");
-    // remove.appendChild(document.createElement("button")).textContent = "Delete";
-    // menu.append(edit, remove);
-    // row.append(title, date, priority, menu);
-
     // Menu element with button options to edit/delete task
     const menu = document.createElement("menu");
     const edit = document.createElement("input");
@@ -49,8 +37,6 @@ export function displayTask() {
     remove.setAttribute("class", "delete");
     remove.setAttribute("src", "/src/delete.svg");
     row.append(title, date, priority, menu);
-
-    // details.append(summary);
 
     // Loop through keys in taskList (title/description/date/priority)
     for (let keys in taskList[tasks]) {

@@ -22,7 +22,7 @@ function displayTaskForm(task) {
   document.querySelector(`input[value=${task.priority}]`).checked = true;
 }
 
-export let controller;
+export let controller = new AbortController();
 function modifyTask(task) {
   controller = new AbortController();
 
@@ -31,6 +31,9 @@ function modifyTask(task) {
     () => {
       closeForm();
       task.title = form().title;
+      task.description = form().description;
+      task.date = form().date;
+      task.priority = form().priority;
       displayTask();
     },
     { once: true, signal: controller.signal }
