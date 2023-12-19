@@ -1,4 +1,4 @@
-import { taskList, initialEvents, addTaskToList } from "./addTasks";
+import { taskList, initialEvents } from "./addTasks";
 import { openForm, closeForm, form } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
@@ -22,7 +22,10 @@ function displayTaskForm(task) {
   document.querySelector(`input[value=${task.priority}]`).checked = true;
 }
 
+export let controller;
 function modifyTask(task) {
+  controller = new AbortController();
+
   document.querySelector("#tasks .done").addEventListener(
     "click",
     () => {
@@ -30,7 +33,7 @@ function modifyTask(task) {
       task.title = form().title;
       displayTask();
     },
-    { once: true }
+    { once: true, signal: controller.signal }
   );
 }
 

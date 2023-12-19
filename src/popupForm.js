@@ -1,4 +1,5 @@
 import { initialEvents } from "./addTasks";
+import { controller } from "./modifyTasks";
 
 const overlay = document.querySelector(".overlay");
 const cancel = document.querySelectorAll(".cancel");
@@ -26,13 +27,22 @@ formButtons.forEach(button => {
 });
 
 overlay.addEventListener("click", () => {
-  document.querySelector("form[style='display: flex;']").style.display = "none";
-
   // Clear form so that previous form inputs aren't shown when adding new tasks
   document.getElementById("tasks").reset();
-  overlay.style.display = "none";
+
+  // Remove event listeners
+  controller.abort();
+
+  closeForm();
 });
-cancel.forEach(button => button.addEventListener("click", closeForm));
+cancel.forEach(button =>
+  button.addEventListener("click", () => {
+    // Remove event listeners
+    controller.abort();
+
+    closeForm();
+  })
+);
 
 function openForm(form) {
   document.getElementById(form).style.display = "flex";
