@@ -2,7 +2,7 @@ import { closeForm } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
 let projectList = [];
-export let projectTasks;
+let projectTasks;
 
 class Project {
   constructor(name) {
@@ -12,18 +12,20 @@ class Project {
   taskList = [];
 }
 
-// Display default project when user first opens the app
-(function () {
-  const defaultProject = new Project("Personal");
-  projectList.push(defaultProject);
-  displayProject();
-})();
+if (localStorage.length === 0) {
+  projectList = [new Project("Personal")];
+} else {
+  projectList = JSON.parse(localStorage.getItem("project"));
+}
+
+displayProject();
 
 const add = document.querySelector("#projects .add");
 add.addEventListener("click", () => {
   closeForm();
   addProjectToList();
   displayProject();
+  projectStorage();
 });
 
 function addProjectToList() {
@@ -46,6 +48,12 @@ function displayProject() {
   // Updates current taskList and displays blank list when new project is displayed
   projectTasks = projectList[projectList.length - 1].taskList;
   displayTask();
+  console.log(projectList);
+}
+
+// Save project to localStorage each time a new project is created
+export function projectStorage() {
+  localStorage.setItem("project", JSON.stringify(projectList));
 }
 
 // Display taskList corresponding to project selected
