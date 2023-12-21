@@ -1,4 +1,4 @@
-import { taskList, initialEvents } from "./addTasks";
+import { taskList, initialEvents, taskStorage } from "./addTasks";
 import { openForm, closeForm, form } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
@@ -11,6 +11,7 @@ tasks.addEventListener("click", e => {
     modifyTask(taskList[id]);
   } else if (e.target.matches(".delete")) {
     taskList.splice(id, 1);
+    taskStorage();
     displayTask();
   }
 });
@@ -25,7 +26,6 @@ function displayTaskForm(task) {
 export let controller = new AbortController();
 function modifyTask(task) {
   controller = new AbortController();
-
   document.querySelector("#tasks .done").addEventListener(
     "click",
     () => {
@@ -34,6 +34,7 @@ function modifyTask(task) {
       task.description = form().description;
       task.date = form().date;
       task.priority = form().priority;
+      taskStorage();
       displayTask();
     },
     { once: true, signal: controller.signal }

@@ -12,6 +12,7 @@ class Project {
   taskList = [];
 }
 
+// If storage hasn't been populated, display default project; else display local storage projects
 if (localStorage.length === 0) {
   projectList = [new Project("Personal")];
 } else {
@@ -48,11 +49,10 @@ function displayProject() {
   // Updates current taskList and displays blank list when new project is displayed
   projectTasks = projectList[projectList.length - 1].taskList;
   displayTask();
-  console.log(projectList);
 }
 
 // Save project to localStorage each time a new project is created
-export function projectStorage() {
+function projectStorage() {
   localStorage.setItem("project", JSON.stringify(projectList));
 }
 
@@ -63,3 +63,5 @@ projects.addEventListener("click", e => {
   projectTasks = projectList[id].taskList;
   displayTask();
 });
+
+export { projectList, projectTasks };
