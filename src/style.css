@@ -42,6 +42,11 @@ header {
   background-color: black; */
 }
 
+/* main > div:hover,
+main > article:hover {
+  background-color: pink;
+} */
+
 nav {
   grid-row-start: 2;
   background-color: rgb(240, 240, 240);

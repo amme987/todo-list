@@ -60,6 +60,15 @@ function projectStorage() {
 const projects = document.querySelector("body > nav > main");
 projects.addEventListener("click", e => {
   const id = e.target.id.slice(1);
+
+  // Remove background color on previous selection
+  projects
+    .querySelectorAll("div")
+    .forEach(div => div.style.removeProperty("background-color"));
+
+  // Set background color on current selection
+  e.target.style.backgroundColor = "pink";
+
   projectTasks = projectList[id].taskList;
   displayTask();
 });
