@@ -1,5 +1,6 @@
 import { closeForm } from "./popupForm";
 import { displayTask } from "./displayTasks";
+import { defaultProject, storage } from "./storage";
 
 let projectList = [];
 let projectTasks;
@@ -12,26 +13,28 @@ class Project {
   taskList = [];
 }
 
-// If storage hasn't been populated, display default project; else display local storage projects
-if (localStorage.length === 0) {
-  projectList = [new Project("Personal")];
-} else {
-  projectList = JSON.parse(localStorage.getItem("project"));
-}
-
-displayProject();
+defaultProject();
+// displayProject();
 
 const add = document.querySelector("#projects .add");
 add.addEventListener("click", () => {
   closeForm();
   addProjectToList();
   displayProject();
-  projectStorage();
+  currentProject();
+  storage();
 });
 
 function addProjectToList() {
   const project = new Project(document.getElementById("project-name").value);
   projectList.push(project);
+}
+
+// When a new project is added to the list, it automatically becomes the new current project
+function currentProject() {
+  localStorage.setItem("currentProject", projectList.length - 1);
+  document.getElementById(`p${projectList.length - 1}`).style.backgroundColor =
+    "pink";
 }
 
 function displayProject() {
@@ -51,11 +54,6 @@ function displayProject() {
   displayTask();
 }
 
-// Save project to localStorage each time a new project is created
-function projectStorage() {
-  localStorage.setItem("project", JSON.stringify(projectList));
-}
-
 // Display taskList corresponding to project selected
 const projects = document.querySelector("body > nav > main");
 projects.addEventListener("click", e => {
@@ -69,8 +67,10 @@ projects.addEventListener("click", e => {
   // Set background color on current selection
   e.target.style.backgroundColor = "pink";
 
+  localStorage.setItem("currentProject", id);
+
   projectTasks = projectList[id].taskList;
   displayTask();
 });
 
-export { projectList, projectTasks };
+export { projectList, projectTasks, Project, displayProject };

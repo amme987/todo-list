@@ -1,4 +1,5 @@
-import { taskList, initialEvents, taskStorage } from "./addTasks";
+import { taskList, initialEvents } from "./addTasks";
+import { storage } from "./storage";
 import { openForm, closeForm, form } from "./popupForm";
 import { displayTask } from "./displayTasks";
 
@@ -11,7 +12,7 @@ tasks.addEventListener("click", e => {
     modifyTask(taskList[id]);
   } else if (e.target.matches(".delete")) {
     taskList.splice(id, 1);
-    taskStorage();
+    storage();
     displayTask();
   }
 });
@@ -34,7 +35,7 @@ function modifyTask(task) {
       task.description = form().description;
       task.date = form().date;
       task.priority = form().priority;
-      taskStorage();
+      storage();
       displayTask();
     },
     { once: true, signal: controller.signal }

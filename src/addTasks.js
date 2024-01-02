@@ -1,6 +1,7 @@
 import { displayTask } from "./displayTasks";
 import { closeForm, form } from "./popupForm";
-import { projectList, projectTasks as taskList } from "./projects";
+import { projectTasks as taskList } from "./projects";
+import { storage } from "./storage";
 
 class Task {
   constructor(title, description, date, priority) {
@@ -16,7 +17,7 @@ const initialEvents = () => {
   closeForm();
   addTaskToList();
   displayTask();
-  taskStorage();
+  storage();
 };
 
 function addTaskToList() {
@@ -29,9 +30,4 @@ function addTaskToList() {
   taskList.push(task);
 }
 
-// Save task to localStorage each time a new task is created
-function taskStorage() {
-  localStorage.setItem("project", JSON.stringify(projectList));
-}
-
-export { taskList, initialEvents, addTaskToList, taskStorage };
+export { taskList, initialEvents, addTaskToList };
