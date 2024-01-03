@@ -38,14 +38,12 @@ body {
 
 header {
   grid-column: span 2;
-  /* color: white;
-  background-color: black; */
 }
 
-/* main > div:hover,
-main > article:hover {
-  background-color: pink;
-} */
+/* Strikethrough headings when checkbox is checked  */
+article > label:has(input[type="checkbox"]:checked) {
+  text-decoration: line-through;
+}
 
 nav {
   grid-row-start: 2;
@@ -98,6 +96,8 @@ textarea {
 menu {
   padding: 0;
 }
+
+/* TODO: Style radio buttons  */
 
 /* input[type="radio"] {
   appearance: none;

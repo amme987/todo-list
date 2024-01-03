@@ -14,7 +14,6 @@ class Project {
 }
 
 defaultProject();
-// displayProject();
 
 const add = document.querySelector("#projects .add");
 add.addEventListener("click", () => {
