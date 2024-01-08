@@ -46,6 +46,20 @@ export function displayTask() {
         date.textContent = taskList[tasks][keys];
       } else if (keys === "priority") {
         priority.textContent = taskList[tasks][keys];
+        console.log(priority.textContent);
+        switch (priority.textContent) {
+          case "low":
+            priority.style.color = "green";
+            priority.style.backgroundColor = "#f1f8e9";
+            break;
+          case "medium":
+            priority.style.color = "#d17300";
+            priority.style.backgroundColor = "#fff3e0";
+            break;
+          case "high":
+            priority.style.color = "#d70000";
+            priority.style.backgroundColor = "#fbe9e7";
+        }
       }
     }
   }

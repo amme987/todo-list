@@ -40,8 +40,8 @@ header {
   grid-column: span 2;
 }
 
-/* Strikethrough headings when checkbox is checked  */
-article > label:has(input[type="checkbox"]:checked) {
+/* Strikethrough tasks when checkbox is checked  */
+label:has(input[type="checkbox"]:checked) {
   text-decoration: line-through;
 }
 
@@ -92,16 +92,36 @@ textarea {
   resize: none;
 }
 
-.priority,
 menu {
   padding: 0;
 }
 
-/* TODO: Style radio buttons  */
+label[for="date"],
+.priority {
+  display: flex;
+  gap: 30px;
+}
 
-/* input[type="radio"] {
+/* Style radio buttons  */
+input[type="radio"] {
   appearance: none;
-} */
+  display: none;
+}
+
+label:has(input[value="low"]:hover) {
+  color: green;
+  background-color: #f1f8e9;
+}
+
+label:has(input[value="medium"]:hover) {
+  color: #d17300;
+  background-color: #fff3e0;
+}
+
+label:has(input[value="high"]:hover) {
+  color: #d70000;
+  background-color: #fbe9e7;
+}
 
 article {
   display: flex;
@@ -110,6 +130,11 @@ article {
 
 article label {
   font-weight: bold;
+}
+
+.priority {
+  padding: 2px 5px;
+  border-radius: 25px;
 }
 
 menu {
