@@ -56,8 +56,8 @@ nav {
 
 .tasks > main {
   display: table;
-  table-layout: fixed;
-  width: 100%;
+  /* table-layout: fixed;
+  width: 100%; */
 }
 
 button.form {
@@ -110,16 +110,20 @@ input[type="radio"] {
   display: none;
 }
 
+/* Show selected and hovered priorities  */
+label:has(input[type="radio"]:checked[value="low"]),
 label:has(input[value="low"]:hover) {
   color: green;
   background-color: #f1f8e9;
 }
 
+label:has(input[type="radio"]:checked[value="medium"]),
 label:has(input[value="medium"]:hover) {
   color: #d17300;
   background-color: #fff3e0;
 }
 
+label:has(input[type="radio"]:checked[value="high"]),
 label:has(input[value="high"]:hover) {
   color: #d70000;
   background-color: #fbe9e7;
