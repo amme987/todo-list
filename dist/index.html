@@ -38,10 +38,10 @@
       <button id="add-task" class="form">+ Add Task</button>
       <form id="tasks" style="display: none">
         <div class="form-header">
-          <button type="reset" class="cancel">Cancel</button>
+          <button class="cancel">Cancel</button>
           <div></div>
           <!-- Button type is 'reset' to reset form elements when clicked  -->
-          <button type="reset" class="add"></button>
+          <button class="add"></button>
         </div>
         <label for="task-title"
           ><input
@@ -49,6 +49,7 @@
             name="task-title"
             id="task-title"
             placeholder="Title"
+            required
         /></label>
         <label for="description">
           <textarea
@@ -57,6 +58,7 @@
             cols="30"
             rows="10"
             placeholder="Description"
+            required
           ></textarea>
         </label>
         <label for="date"

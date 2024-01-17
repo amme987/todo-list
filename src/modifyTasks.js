@@ -30,13 +30,20 @@ function modifyTask(task) {
   document.querySelector("#tasks .done").addEventListener(
     "click",
     () => {
-      closeForm();
-      task.title = form().title;
-      task.description = form().description;
-      task.date = form().date;
-      task.priority = form().priority;
-      storage();
-      displayTask();
+      if (
+        !document.getElementById("task-title").validity.valueMissing &&
+        !document.getElementById("description").validity.valueMissing
+      ) {
+        // e.preventDefault();
+        closeForm();
+        console.log(form().title);
+        task.title = form().title;
+        task.description = form().description;
+        task.date = form().date;
+        task.priority = form().priority;
+        storage();
+        displayTask();
+      }
     },
     { once: true, signal: controller.signal }
   );

@@ -16,7 +16,15 @@ formButtons.forEach(button => {
       openForm("projects");
     } else {
       openForm("tasks");
-      add.addEventListener("click", initialEvents);
+      add.addEventListener("click", e => {
+        if (
+          !document.getElementById("task-title").validity.valueMissing &&
+          !document.getElementById("description").validity.valueMissing
+        ) {
+          e.preventDefault();
+          initialEvents();
+        }
+      }); //Add check for required fields here
       add.setAttribute("class", "add");
       add.textContent = "Add";
 
@@ -45,6 +53,7 @@ cancel.forEach(button =>
 );
 
 function openForm(form) {
+  document.getElementById(form).reset();
   document.getElementById(form).style.display = "flex";
   overlay.style.display = "block";
 }

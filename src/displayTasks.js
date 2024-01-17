@@ -46,7 +46,6 @@ export function displayTask() {
         date.textContent = taskList[tasks][keys];
       } else if (keys === "priority") {
         priority.textContent = taskList[tasks][keys];
-        console.log(priority.textContent);
         switch (priority.textContent) {
           case "low":
             priority.style.color = "green";
