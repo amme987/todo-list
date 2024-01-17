@@ -56,7 +56,7 @@ nav {
 
 .tasks > main {
   display: table;
-  table-layout: fixed;
+  /* table-layout: fixed; */
   width: 100%;
 }
 
@@ -147,6 +147,7 @@ article label {
 }
 
 .priority {
+  width: fit-content;
   padding: 2px 5px;
   border-radius: 25px;
 }
