@@ -1,7 +1,9 @@
 import { taskList } from "./addTasks";
+import { storage } from "./storage";
 
 export function displayTask() {
   const main = document.querySelector(".tasks main");
+
   main.textContent = "";
 
   // Loop through taskList
@@ -61,5 +63,21 @@ export function displayTask() {
         }
       }
     }
+    // Mark checkbox on DOM as "checked"
+    if (taskList[tasks].checked) {
+      inputTitle.checked = true;
+    }
   }
 }
+
+// Keep track of checkboxes when user clicks on task
+document.querySelector(".tasks main").addEventListener("click", e => {
+  if (e.target.matches("input[type='checkbox']")) {
+    const checkbox = e.target.checked;
+    const id = e.target.closest("article").id;
+
+    // If checkbox is checked, mark "checked" as true on taskList, else mark as false
+    taskList[id].checked = checkbox ? true : false;
+    storage();
+  }
+});

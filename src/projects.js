@@ -39,7 +39,6 @@ function currentProject() {
 function displayProject() {
   const main = document.querySelector(".projects main");
   main.textContent = "";
-
   for (const projects in projectList) {
     const div = document.createElement("div");
     main.appendChild(div);
@@ -48,8 +47,8 @@ function displayProject() {
     div.textContent = projectList[projects].name;
   }
 
-  // Updates current taskList and displays blank list when new project is displayed
-  projectTasks = projectList[projectList.length - 1].taskList;
+  // Updates current taskList based on selected project
+  projectTasks = projectList[localStorage.getItem("currentProject")].taskList;
   displayTask();
 }
 

@@ -21,7 +21,7 @@ formButtons.forEach(button => {
           !document.getElementById("task-title").validity.valueMissing &&
           !document.getElementById("description").validity.valueMissing
         ) {
-          e.preventDefault();
+          // e.preventDefault();
           initialEvents();
         }
       }); //Add check for required fields here

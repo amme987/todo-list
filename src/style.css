@@ -56,7 +56,6 @@ nav {
 
 .tasks > main {
   display: table;
-  /* table-layout: fixed; */
   width: 100%;
 }
 
@@ -153,7 +152,6 @@ article label {
 }
 
 menu {
-  /* display: flex; */
   list-style-type: none;
 }
 

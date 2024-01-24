@@ -9,7 +9,7 @@ tasks.addEventListener("click", e => {
   if (e.target.matches(".edit")) {
     changeToDone();
     displayTaskForm(taskList[id]);
-    modifyTask(taskList[id]);
+    modifyTask(taskList[id], e.target);
   } else if (e.target.matches(".delete")) {
     taskList.splice(id, 1);
     storage();
@@ -25,22 +25,25 @@ function displayTaskForm(task) {
 }
 
 export let controller = new AbortController();
-function modifyTask(task) {
+function modifyTask(task, target) {
   controller = new AbortController();
   document.querySelector("#tasks .done").addEventListener(
     "click",
-    () => {
+    e => {
       if (
         !document.getElementById("task-title").validity.valueMissing &&
         !document.getElementById("description").validity.valueMissing
       ) {
         // e.preventDefault();
         closeForm();
-        console.log(form().title);
         task.title = form().title;
         task.description = form().description;
         task.date = form().date;
         task.priority = form().priority;
+        // Tell if checkbox is checked
+        task.checked = target
+          .closest("article")
+          .querySelector("input[type='checkbox']").checked;
         storage();
         displayTask();
       }

@@ -4,11 +4,12 @@ import { projectTasks as taskList } from "./projects";
 import { storage } from "./storage";
 
 class Task {
-  constructor(title, description, date, priority) {
+  constructor(title, description, date, priority, checked) {
     this.title = title;
     this.description = description;
     this.date = date;
     this.priority = priority;
+    this.checked = checked;
   }
 }
 
@@ -25,9 +26,10 @@ function addTaskToList() {
     form().title,
     form().description,
     form().date,
-    form().priority
+    form().priority,
+    false
   );
   taskList.push(task);
 }
 
-export { taskList, initialEvents, addTaskToList };
+export { taskList, initialEvents };

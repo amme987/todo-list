@@ -5,8 +5,8 @@ function defaultProject() {
   if (!localStorage.getItem("project")) {
     projectList = [new Project("Personal")];
     storage();
-    displayProject();
     localStorage.setItem("currentProject", 0);
+    displayProject();
 
     // If storage has projects and a project Selection, display projects and selection
   } else {
