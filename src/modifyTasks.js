@@ -29,12 +29,11 @@ function modifyTask(task, target) {
   controller = new AbortController();
   document.querySelector("#tasks .done").addEventListener(
     "click",
-    e => {
+    () => {
       if (
         !document.getElementById("task-title").validity.valueMissing &&
         !document.getElementById("description").validity.valueMissing
       ) {
-        // e.preventDefault();
         closeForm();
         task.title = form().title;
         task.description = form().description;

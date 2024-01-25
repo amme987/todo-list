@@ -32,4 +32,4 @@ function addTaskToList() {
   taskList.push(task);
 }
 
-export { taskList, initialEvents };
+export { taskList, initialEvents, addTaskToList };

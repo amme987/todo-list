@@ -16,15 +16,15 @@ formButtons.forEach(button => {
       openForm("projects");
     } else {
       openForm("tasks");
-      add.addEventListener("click", e => {
+      add.addEventListener("click", () => {
+        // If task title and description fields are filled in, run initialEvents()
         if (
           !document.getElementById("task-title").validity.valueMissing &&
           !document.getElementById("description").validity.valueMissing
         ) {
-          // e.preventDefault();
           initialEvents();
         }
-      }); //Add check for required fields here
+      });
       add.setAttribute("class", "add");
       add.textContent = "Add";
 
